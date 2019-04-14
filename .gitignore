@@ -10,3 +10,13 @@
 
 # Output of the go coverage tool, specifically when used with LiteIDE
 *.out
+node_modules
+hanayo
+hanayo.conf
+team.json
+static/profbackgrounds/*
+!static/profbackgrounds/.keep
+semantic/gulpfile.tmp.*.js
+/_
+static/oauth-apps/*
+!static/oauth-apps/.keep

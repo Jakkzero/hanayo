@@ -1,0 +1,20 @@
+{{/*###
+Handler=/gettingstarted
+TitleBar=Getting Started
+KyutGrill=donate2.png
+*/}}
+{{ define "tpl" }}
+{{ $global := .Context }}
+
+<div class="ui container">
+	<div class="ui segment">
+		<h1>Welcome to Kawata!</h1>
+		{{ if .Context.User.Username }}
+			<h3>Congrats, you are currently logged in!</h3>
+		{{ else }}
+			<h3>You look new here. Let us introduct you what Kawata is!</h3>
+		{{ end }}
+	</div>
+</div>
+
+{{ end }}

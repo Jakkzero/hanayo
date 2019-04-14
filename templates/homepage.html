@@ -1,0 +1,38 @@
+{{/*###
+Handler=/
+TitleBar=Home Page
+*/}}
+{{ define "tpl" }}
+{{ $cf := .ClientFlags }}
+{{ $ds := band $cf 1 }}
+{{ $   := . }}
+<div class="ui container">
+
+<div class="ui segment" id="jumbotron">
+	<div class="ui twelve column centered grid" id="jumbgrid" >
+		<div class="four wide column">
+			<img src="https://kawata.pw/static/logos/logo.png">
+		</div>
+		<div class="eight wide column">
+			<div id="welcome">
+			<h1>Welcome to osu!Kawata!</h1>
+			<br>
+			<p>Kawata is the first osu! private server that allows cheating. Confused? Don't worry, we'll help getting you started!</p>
+			<br>
+			<span class="buttons">
+				<button class="btn-hover color-1">Sign up!</button>
+			</span>
+			<span class="buttons">
+				<button class="btn-hover color-4">Our Community</button>
+			</span>
+			</div>
+		</div>
+	</div>
+</div>
+
+<div class="ui segment">
+	<h1>Stats</h1>
+</div>
+
+</div>
+{{ end }}

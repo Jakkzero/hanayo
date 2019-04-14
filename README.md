@@ -1,2 +1,2 @@
 # hanayo
-Kawata's frontend ~ based on ripple
+Kawata's frontend ~ Based on ripple

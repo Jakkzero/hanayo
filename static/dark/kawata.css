@@ -10,8 +10,22 @@ body.ds .white.background {
     background-color: rgba(28, 28, 28, 0.4) !important;
 }
 
+p {
+    font-family: 'Noto Sans', 'Helvetica', 'Arial';
+}
+
+.active.item {
+    font-family: 'Noto Sans', 'Helvetica', 'Arial';
+    font-weight: 400;
+}
+
+.item {
+    font-family: 'Noto Sans', 'Helvetica', 'Arial';
+    font-weight: 400;
+}
+
 body {
-    background: url("https://dev.kawata.biz/static/assets/background/bg-dark.png");
+    background: url("https://osu.ppy.sh/static/assets/background/bg-dark.png");
 }
 
 #deletewarning {
@@ -212,4 +226,10 @@ body {
 }
 .btn-hover.color-11 {
        background-image: linear-gradient(to right, #eb3941, #f15e64, #e14e53, #e2373f);  box-shadow: 0 5px 15px rgba(242, 97, 103, .4);
+}
+
+.center {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
 }

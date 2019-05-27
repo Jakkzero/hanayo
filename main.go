@@ -21,8 +21,6 @@ import (
 	"gopkg.in/mailgun/mailgun-go.v1"
 	"gopkg.in/redis.v5"
 	"github.com/kawatapw/agplwarning"
-	"github.com/kawatapw/hanayo/modules/btcaddress"
-	"github.com/kawatapw/hanayo/modules/btcconversions"
 	"github.com/kawatapw/hanayo/routers/oauth"
 	"github.com/kawatapw/hanayo/routers/pagemappings"
 	"github.com/kawatapw/hanayo/services"
@@ -49,6 +47,8 @@ var (
 
 		MainRippleFolder string `description:"Folder where all the non-go projects are contained, such as old-frontend, lets, ci-system. Used for changelog."`
 		AvatarsFolder    string `description:"location folder of avatars, used for placing the avatars from the avatar change page."`
+
+		ClanAvatarsFolder string `description:"location folder of clan avatars, used for placing the clan avatars from the clan avatar change page."`
 
 		CookieSecret string
 
@@ -174,11 +174,6 @@ func main() {
 	// initialise oauth
 	setUpOauth()
 
-	// initialise btcaddress
-	btcaddress.Redis = rd
-	btcaddress.APIKey = config.CoinbaseAPIKey
-	btcaddress.APISecret = config.CoinbaseAPISecret
-
 	// even if it's not release, we say that it's release
 	// so that gin doesn't spam
 	gin.SetMode(gin.ReleaseMode)
@@ -261,6 +256,12 @@ func generateEngine() *gin.Engine {
 	r.GET("/register/verify", verifyAccount)
 	r.GET("/register/welcome", welcome)
 
+	r.GET("/clans/create", ccreate)
+	r.POST("/clans/create", ccreateSubmit)
+	r.GET("/c/:cid", clanPage)
+	r.POST("/c/:cid", leaveClan)
+	r.GET("/clans/invite/:inv", clanInvite)
+
 	r.GET("/u/:user", userProfile)
 	r.GET("/b/:bid", beatmapInfo)
 
@@ -283,13 +284,8 @@ func generateEngine() *gin.Engine {
 	r.GET("/oauth/token", oauth.Token)
 	r.POST("/oauth/token", oauth.Token)
 
-	r.GET("/donate/rates", btcconversions.GetRates)
-
-	r.Any("/blog/*url", blogRedirect)
-
-	r.GET("/help", func(c *gin.Context) {
-		c.Redirect(301, "https://support.ripple.moe")
-	})
+	r.POST("/settings/clansettings", createInvite)
+	r.POST("/settings/clansettings/k", clanKick)
 
 	loadSimplePages(r)
 

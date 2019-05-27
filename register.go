@@ -3,13 +3,14 @@ package main
 import (
 	"database/sql"
 	"regexp"
+	"fmt"
 	"strconv"
 	"strings"
 	"time"
 
 	"github.com/asaskevich/govalidator"
 	"github.com/gin-gonic/gin"
-	"github.com/kawatapw/api/common"
+	"zxq.co/ripple/rippleapi/common"
 )
 
 func register(c *gin.Context) {
@@ -103,6 +104,7 @@ func registerSubmit(c *gin.Context) {
 		username, safeUsername(username), pass, c.PostForm("email"), time.Now().Unix(), common.UserPrivilegePendingVerification)
 	if err != nil {
 		registerResp(c, errorMessage{T(c, "Whoops, an error slipped in. You might have been registered, though. I don't know.")})
+		fmt.Printf(err.Error())
 		return
 	}
 	lid, _ := res.LastInsertId()
@@ -251,7 +253,6 @@ func in(s string, ss []string) bool {
 
 var usernameRegex = regexp.MustCompile(`^[A-Za-z0-9 _\[\]-]{2,15}$`)
 var forbiddenUsernames = []string{
-	"peppy",
 	"rrtyui",
 	"cookiezi",
 	"azer",

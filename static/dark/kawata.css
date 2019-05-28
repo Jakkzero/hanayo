@@ -6,83 +6,18 @@
     box-sizing: border-box;
 }
 
+/* Color */
+
 body.ds .white.background {
     background-color: rgba(28, 28, 28, 0.4) !important;
-}
-
-p {
-    font-family: 'Noto Sans', 'Helvetica', 'Arial';
-}
-
-.active.item {
-    font-family: 'Noto Sans', 'Helvetica', 'Arial';
-    font-weight: 400;
-}
-
-.item {
-    font-family: 'Noto Sans', 'Helvetica', 'Arial';
-    font-weight: 400;
 }
 
 body {
     background: url("https://osu.ppy.sh/static/assets/background/bg-dark.png");
 }
 
-#deletewarning {
-    color: orange;
-    font-size: 1.1rem;
-}
-
- #deletewarning2 {
-    color: red;
-    font-size: 1.1rem;
-}
-
- .ui.vertical.menu {
+.ui.vertical.menu {
     background: #0e0e0e7d;
-}
-
-.user.avatar {
-    border-radius: 50%;
-}
-
-.huge.heading {
-    background: none;
-    height: 50%;
-}
-
-.huge.heading h1 {
-    padding: 3.0rem;
-    font-family: 'Noto Sans', 'Helvetica', 'Arial';
-    font-size: 3.0rem;
-}
-
-.ui.attached.segment {
-    border: none;
-}
-
-.ui.attached.menu:not(.tabular) {
-    border: none;
-}
-
-.ui.table {
-    border: none;
-}
-
-#badges {
-    margin: 5px;
-}
-
-#username {
-    float: left;
-}
-
-#badgescol {
-    float: left;
-}
-
-#userdropdown {
-    width: 20rem;
 }
 
 .ui.menu .dropdown.item .menu{
@@ -129,13 +64,91 @@ body {
     background: rgba(28, 28, 28, 0.4)
 }
 
+.ui.search>.results {
+    background: #0e0e0e;
+    border: none;
+    box-shadow: 0 0 10px 8px #1b1b1b;
+}
+
+.ui.card {
+    background: #131313;
+    box-shadow: 0 0 20px 7px black;
+}
+
+/* Color Independant */
+
+p {
+    font-family: 'Noto Sans', 'Helvetica', 'Arial';
+}
+
+.active.item {
+    font-family: 'Noto Sans', 'Helvetica', 'Arial';
+    font-weight: 400;
+}
+
+.item {
+    font-family: 'Noto Sans', 'Helvetica', 'Arial';
+    font-weight: 400;
+}
+
+#deletewarning {
+    color: orange;
+    font-size: 1.1rem;
+}
+
+ #deletewarning2 {
+    color: red;
+    font-size: 1.1rem;
+}
+
+.user.avatar {
+    border-radius: 50%;
+}
+
+.huge.heading {
+    background: none;
+    height: 50%;
+}
+
+.huge.heading h1 {
+    padding: 3.0rem;
+    font-family: 'Noto Sans', 'Helvetica', 'Arial';
+    font-size: 3.0rem;
+}
+
+.ui.attached.segment {
+    border: none;
+}
+
+.ui.attached.menu:not(.tabular) {
+    border: none;
+}
+
+.ui.table {
+    border: none;
+}
+
+#badges {
+    margin: 5px;
+}
+
+#username {
+    float: left;
+}
+
+#badgescol {
+    float: left;
+}
+
+#userdropdown {
+    width: 20rem;
+}
+
 #welcome {
     width: 95%;
     text-align: left;
     padding-top: 1.1rem;
 }
-
-#jumbgrid {}
 
 .buttons {
     margin: 10%;
@@ -146,11 +159,13 @@ body {
     border-radius: 50%;
 }
 
-.ui.search>.results {
-    background: #0e0e0e;
-    border: none;
-    box-shadow: 0 0 10px 8px #1b1b1b;
+.center {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
 }
+
+/* Buttons */
 
 .btn-hover {
     width: 150px;
@@ -170,7 +185,6 @@ body {
     -webkit-transition: all .4s ease-in-out;
     transition: all .4s ease-in-out;
 }
-
 .btn-hover:hover {
     background-position: 100% 0;
     moz-transition: all .4s ease-in-out;
@@ -178,12 +192,9 @@ body {
     -webkit-transition: all .4s ease-in-out;
     transition: all .4s ease-in-out;
 }
-
 .btn-hover:focus {
     outline: none;
 }
-
-
 .btn-hover.color-1 {
     background-image: linear-gradient(to right, #25aae1, #40e495, #30dd8a, #2bb673);
     box-shadow: 0 4px 15px 0 rgba(49, 196, 190, 0.75);
@@ -226,10 +237,4 @@ body {
 }
 .btn-hover.color-11 {
        background-image: linear-gradient(to right, #eb3941, #f15e64, #e14e53, #e2373f);  box-shadow: 0 5px 15px rgba(242, 97, 103, .4);
-}
-
-.center {
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
 }

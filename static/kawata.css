@@ -6,6 +6,86 @@
     box-sizing: border-box;
 }
 
+/* Color */
+
+body.ds .white.background {
+    background-color: rgba(247, 247, 247, 0.4) !important;
+}
+
+body {
+    background: url("https://osu.ppy.sh/static/assets/background/bg-light.png");
+}
+
+.ui.vertical.menu {
+    background: #f5f5f57d;
+}
+
+.ui.menu .dropdown.item .menu{
+    background: url("/static/assets/background/bg-light.png");
+}
+
+.ui.modal>.content {
+    background: #f8f8f8;
+}
+
+.ui.table {
+    background: #ffffff;
+}
+
+#userinfo {
+    padding: 1.1rem;
+    margin-left: 1.05rem;
+}
+
+.ui.table thead th {
+    background: #eeeeee;
+}
+
+.ui.table tr td {
+    background: #fafafa;
+}
+
+.ui.table tfoot th {
+    background: #eeeeee;
+}
+
+.ui.segments {
+    background: #f5f5f598;
+    border: none;
+    box-shadow: none;
+}
+
+.ui.menu {
+    background: #f7f7f7;
+    box-shadow: none;
+    border: none;
+}
+
+#jumbotron {
+    position:relative;
+    height:auto;
+    overflow:auto;
+    background: rgba(250, 250, 250, 0.4)
+}
+
+.ui.search>.results {
+    background: #e6e6e6;
+    border: none;
+    box-shadow: 0 0 10px 8px #cacaca;
+}
+
+.ui.card {
+    background: #131313;
+    box-shadow: 0 0 20px 7px black;
+}
+
+.huge.heading h1 {
+    color: black;
+    text-shadow: 0 0 0px #000;
+}
+
+/* Color Independant */
+
 p {
     font-family: 'Noto Sans', 'Helvetica', 'Arial';
 }
@@ -20,14 +100,6 @@ p {
     font-weight: 400;
 }
 
-body.ds .white.background {
-    background-color: rgba(240, 240, 240, 0.4) !important;
-}
-
-body {
-    background: url("https://osu.ppy.sh/static/assets/background/bg-light.png");
-}
-
 #deletewarning {
     color: orange;
     font-size: 1.1rem;
@@ -36,10 +108,6 @@ body {
  #deletewarning2 {
     color: red;
     font-size: 1.1rem;
-}
-
- .ui.vertical.menu {
-    background: #eeeeee7d;
 }
 
 .user.avatar {
@@ -55,8 +123,6 @@ body {
     padding: 3.0rem;
     font-family: 'Noto Sans', 'Helvetica', 'Arial';
     font-size: 3.0rem;
-    color: black;
-    text-shadow: 0 2px 10px white;
 }
 
 .ui.attached.segment {
@@ -87,57 +153,11 @@ body {
     width: 20rem;
 }
 
-.ui.menu .dropdown.item .menu{
-    background: url("/static/assets/background/bg-light.png");
-}
-
-.ui.modal>.content {
-    background: #f8f8f8;
-}
-
-.ui.table {
-    background: #f8f8f8;
-}
-
-#userinfo {
-    padding: 1.1rem;
-    margin-left: 1.05rem;
-}
-
-.ui.table thead th {
-    background: #f7f7f7;
-}
-
-.ui.table tr td {
-    background: #f7f7f7;
-}
-
-.ui.table tfoot th {
-    background: #d8d8d8;
-}
-
-.ui.segment {
-    background: #f7f7f7;
-}
-
-.ui.menu {
-    background: #d8d8d8;
-}
-
-#jumbotron {
-    position:relative;
-    height:auto;
-    overflow:auto;
-    background: rgba(216, 216, 216, 0.4)
-}
-
 #welcome {
     width: 95%;
     text-align: left;
     padding-top: 1.1rem;
 }
-
-#jumbgrid {}
 
 .buttons {
     margin: 10%;
@@ -148,17 +168,19 @@ body {
     border-radius: 50%;
 }
 
-.ui.search>.results {
-    background: #f8f8f8;
-    border: none;
-    box-shadow: 0 0 10px 8px #dadada;
+.center {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
 }
+
+/* Buttons */
 
 .btn-hover {
     width: 150px;
     font-size: 16px;
     font-weight: 600;
-    color: rgb(0, 0, 0);
+    color: #fff;
     cursor: pointer;
     margin: 5px;
     height: 45px;
@@ -172,7 +194,6 @@ body {
     -webkit-transition: all .4s ease-in-out;
     transition: all .4s ease-in-out;
 }
-
 .btn-hover:hover {
     background-position: 100% 0;
     moz-transition: all .4s ease-in-out;
@@ -180,12 +201,9 @@ body {
     -webkit-transition: all .4s ease-in-out;
     transition: all .4s ease-in-out;
 }
-
 .btn-hover:focus {
     outline: none;
 }
-
-
 .btn-hover.color-1 {
     background-image: linear-gradient(to right, #25aae1, #40e495, #30dd8a, #2bb673);
     box-shadow: 0 4px 15px 0 rgba(49, 196, 190, 0.75);

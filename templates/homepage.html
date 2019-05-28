@@ -19,11 +19,17 @@ TitleBar=Home Page
 			<br>
 			<p>Kawata is the first osu! private server that allows cheating. Confused? Don't worry, we'll help getting you started!</p>
 			<br>
+			{{ if .Context.User.Username }}
 			<span class="buttons">
-				<button class="btn-hover color-1">Sign up!</button>
+				<button class="btn-hover color-1" onclick="window.location.href='/u/{{ .Context.User.ID }}'">My profile</button>
 			</span>
+			{{ else }}
 			<span class="buttons">
-				<button class="btn-hover color-4">Our Community</button>
+				<button class="btn-hover color-1" onclick="window.location.href='/register'">Sign up!</button>
+			</span>
+			{{ end }}
+			<span class="buttons">
+				<button class="btn-hover color-4" onclick="window.location.href='/doc/rules'">Read the Rules</button>
 			</span>
 			</div>
 		</div>
@@ -31,7 +37,13 @@ TitleBar=Home Page
 </div>
 
 <div class="ui segment">
-	<h1>Stats</h1>
+	<h1>Hi there!</h1>
+
+	<p>Welcome to the "new" Kawata website, as you can see, there have been a lot of interface refinements. Most importantly, we have improved our internal infrastructure a lot. This home page is currently work-in-progress.</p>
+	
+	<p>If you want any new features, or have found an issue, do not hesitate to contact us, on our <a href="https://discord.gg/Gk7wAqf" target="_blank">Discord server</a>, for example.</p>
+
+	<p>Thanks!</p>
 </div>
 
 </div>

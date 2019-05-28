@@ -70,7 +70,7 @@
 
 						{{ with bget "isOnline?id=%.0f" .id }}
 							<div class="subtitle">
-								<i class="{{ if .result }}green{{ else }}grey{{ end }} circle icon"></i>
+								<br><br><i class="{{ if .result }}green{{ else }}grey{{ end }} circle icon"></i>
 								{{ if .result }}{{ $global.T "Online" }}{{ else }}{{ $global.T "Offline" }}{{ end }}
 							</div>
 						{{ end }}
@@ -153,6 +153,10 @@
 											<tr>
 												<td><b>{{ $global.T "Playcount" }}</b></td>
 												<td class="right aligned">{{ humanize .playcount }}</td>
+											</tr>
+											<tr>
+												<td><b>{{ $global.T "Total Play Time" }}</b></td>
+												<td class="right aligned">{{ hhmm .play_time }}</td>
 											</tr>
 											<tr>
 												<td><b>{{ $global.T "Replays watched" }}</b></td>

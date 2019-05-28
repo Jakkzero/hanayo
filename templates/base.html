@@ -66,21 +66,13 @@
 
 		<div class="footer">
 
-        <div class="ui scrolling dropdown" style="margin-left: 5px;" id="language-selector">
-            {{ $lang := .Context.Language }}
-            {{ with $lang }}
-              {{ $info := languageInformationByNameShort . }}
-              <div class="text"><i class="{{ $info.CountryShort }} flag"></i>{{ $info.Name }}</div>
-            {{ else }}
-              <div class="default text">{{ .T "Language" }}</div>
-            {{ end }}
-            <i class="dropdown icon"></i>
-            <div class="menu">
-              {{ range languageInformation }}
-                <div class="{{ if eq .NameShort $lang }}selected {{ end }}item" data-lang="{{ .NameShort }}"><i class="{{ .CountryShort }} flag"></i>{{ .Name }}</div>
-              {{ end }}
-            </div>
-          </div>
+				© 2019 osu!Kawata
+				•
+				<a href="/team" title="Who is working on this thing?"><i class="users icon"></i>Team</a>
+				•
+				<a href="https://github.com/kawatapw" title="What is running behind our server?"><i class="github icon"></i>Source Code</a>
+				•
+				<a href="https://twitter.com/Kawatapw" title="{{ .T "Follow us on Twitter!" }}"><i class="twitter icon"></i></a>
 
 		</div>
 		<script>
@@ -89,7 +81,6 @@
 				banchoAPI: {{ .Conf.BanchoAPI }},
 				baseAPI:   {{ .Conf.BaseAPIPublic }},
         cheesegullAPI: {{ .Conf.CheesegullAPI }},
-        language:  {{ with $lang }}{{ . }}{{ else }}"en"{{ end }},
 			};
 			var currentUserID = {{ .Context.User.ID }};
 		</script>

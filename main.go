@@ -21,7 +21,6 @@ import (
 	"gopkg.in/mailgun/mailgun-go.v1"
 	"gopkg.in/redis.v5"
 	"github.com/kawatapw/agplwarning"
-	"github.com/kawatapw/hanayo/routers/oauth"
 	"github.com/kawatapw/hanayo/routers/pagemappings"
 	"github.com/kawatapw/hanayo/services"
 	"github.com/kawatapw/hanayo/services/cieca"
@@ -171,9 +170,6 @@ func main() {
 		Password: config.RedisPassword,
 	})
 
-	// initialise oauth
-	setUpOauth()
-
 	// even if it's not release, we say that it's release
 	// so that gin doesn't spam
 	gin.SetMode(gin.ReleaseMode)
@@ -269,8 +265,6 @@ func generateEngine() *gin.Engine {
 	r.GET("/pwreset/continue", passwordResetContinue)
 	r.POST("/pwreset/continue", passwordResetContinueSubmit)
 
-	r.POST("/irc/generate", ircGenToken)
-
 	r.GET("/settings/password", changePassword)
 	r.POST("/settings/password", changePasswordSubmit)
 	r.POST("/settings/userpage/parse", parseBBCode)
@@ -278,11 +272,6 @@ func generateEngine() *gin.Engine {
 	r.POST("/settings/profbackground/:type", profBackground)
 	r.POST("/settings/doc", docEdit)
 	r.POST("/settings/delete/confirm", deleteAccount)
-
-	r.GET("/oauth/authorize", oauth.Authorize)
-	r.POST("/oauth/authorize", oauth.Authorize)
-	r.GET("/oauth/token", oauth.Token)
-	r.POST("/oauth/token", oauth.Token)
 
 	r.POST("/settings/clansettings", createInvite)
 	r.POST("/settings/clansettings/k", clanKick)
@@ -295,5 +284,5 @@ func generateEngine() *gin.Engine {
 }
 
 const alwaysRespondText = `Ooops! Looks like something went really wrong while trying to process your request.
-Perhaps report this to a Ripple developer?
+Perhaps report this to a Kawata developer?
 Retrying doing again what you were trying to do might work, too.`

@@ -1,14 +1,15 @@
 {{/*###
-Include=user_group.html
+Include=clan_members.html
 */}}
 {{ define "tpl" }}
 <div class="ui container">
+
 	{{ if .ClanID }}
 		{{ $gqm := .Gin.Query "mode" }}
 		{{ $global := . }}
 		{{ $favouritemode := $gqm }}
 		{{ range (.Get "clans?id=%d" .ClanID).clans }}
-		<div class="ui top attached segment overflow auto center aligned">
+		<div class="ui top attached segment overflow auto aligned">
 			<div class="magic table">
 				{{ if .icon }}
 				<div class="table element">
@@ -17,50 +18,60 @@ Include=user_group.html
 				{{ end }}
 				<div class="table element">
 					<h1 class="ui header">
-							{{ .name }}
+
+						{{ $global.T "%s" .name | html }}
 					</h1>
 						<div class="subtitle">
-							{{ $global.T "(%s)" (.tag | htmlescaper) }}
+							{{ $global.T "(%s)" (.tag | htmlescaper) | html }}
 						</div>
 				</div>
 			</div>
 		</div>
 		<div class="ui four item bottom attached menu" id="mode-menu">
-			<a class="mode item" href="/c/{{ .id }}?mode=0">Standard</a>
-			<a class="mode item" href="/c/{{ .id }}?mode=1">Taiko</a>
-			<a class="mode item" href="/c/{{ .id }}?mode=2">Catch the Beat</a>
-			<a class="mode item" href="/c/{{ .id }}?mode=3">Mania</a>
+			<a class="mode item" href="/c/{{ .id }}?mode=0">osu!</a>
+			<a class="mode item" href="/c/{{ .id }}?mode=1">osu!taiko</a>
+			<a class="mode item" href="/c/{{ .id }}?mode=2">osu!catch</a>
+			<a class="mode item" href="/c/{{ .id }}?mode=3">osu!mania</a>
 		</div>
 		<div class="ui segment">
 				<div class="ui two column divided stackable grid">
 					<div class="row">
 						<div class="column">
-							<br>{{ $global.T "Info: %s" (.description) }}
+
+								{{ $global.T "%s" (.description | htmlescaper) | html }}
 							{{ end }}
 							<br><br><table class="ui very basic two column compact table nopad">
 								<tbody>
 								{{ with (.Get "clans/stats?id=%d&m=%d" .ClanID (.Gin.Query "mode"))}}
 									<td></td>
 									<tr>
+											<td><b>{{ $global.T "Global Rank" }}</b></td>
+											<td class="right aligned">#{{ humanize .rank }}</td>
+									</tr>
+									<tr>
+										<td><b>{{ $global.T "PP" }}</b></td>
+										<td class="right aligned">{{ humanize .chosen_mode.pp }}</td>
+									</tr>
+									<tr>
 										<td><b>{{ $global.T "Ranked Score" }}</b></td>
-										<td class="right aligned">{{ humanize .ranked_score }}</td>
+										<td class="right aligned">{{ humanize .chosen_mode.ranked_score }}</td>
 									</tr>
 									
 									<tr>
 										<td><b>{{ $global.T "Total Score" }}</b></td>
-										<td class="right aligned">{{ humanize .total_score }}</td>
+										<td class="right aligned">{{ humanize .chosen_mode.total_score }}</td>
 									</tr>
 									<tr>
 										<td><b>{{ $global.T "Total Playcount" }}</b></td>
-										<td class="right aligned">{{ humanize .playcount }}</td>
+										<td class="right aligned">{{ humanize .chosen_mode.playcount }}</td>
 									</tr>
 									<tr>
 										<td><b>{{ $global.T "Total Replays Watched" }}</b></td>
-										<td class="right aligned">{{ humanize .replays_watched }}</td>
+										<td class="right aligned">{{ humanize .chosen_mode.replays_watched }}</td>
 									</tr>
 									<tr>
 										<td><b>{{ $global.T "Total Hits" }}</b></td>
-										<td class="right aligned">{{ humanize .total_hits }}</td>
+										<td class="right aligned">{{ humanize .chosen_mode.total_hits }}</td>
 									</tr>
 									{{end}}
 								{{ range (.Get "clans?id=%d" .ClanID).clans }}
@@ -90,21 +101,27 @@ Include=user_group.html
 										<div class="ui one item menu" id="join-menu"><a class="item" style="background-color:rgba(255,0,0,.3)">Already joined a clan</a></div>
 									{{end}}
 								{{ else }}
-									
+
 								{{ end }}
 						{{ else }}
 						<div class="ui one item menu" id="join-menu"><a class="item" href="/login" style="background-color:rgba(0,128,255,.3)">Please login to join a clan</a></div>
 						
 						{{ end }}
 							<h1 class="ui heading">{{ .T "Clan Owner" }}</h1>
-							{{ template "clanGroup" (.Get "clans/members?id=%d&r=%d" .ClanID 8) }}
+							<p>
+								{{ .T "The leader of the clan." }}<br>
+							</p>
+							{{ template "clanMembers" (.Get "clans/members?id=%d&r=%d" .ClanID 8) }}
 						</div>
 					</div>
 				</div>
-					<h1 class="ui heading">{{ .T "Clan Members" }}</h1>
+				<div class="ui aligned segment">
+					<h1 class="ui heading">{{ .T "Members" }}</h1>
 					<p>
+						{{ .T "The members of the clan." }}<br>
 					</p>
-					{{ template "userGroup" (.Get "clans/members?id=%d&r=%d" .ClanID 1) }}
+						{{ template "clanMembers" (.Get "clans/members?id=%d&r=%d" .ClanID 1) }}
+				</div>
 			</div>
 		{{ end }}
 </div>

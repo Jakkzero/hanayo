@@ -6,7 +6,6 @@ import (
 	"strconv"
 	"strings"
 
-	"github.com/DataDog/datadog-go/statsd"
 	"github.com/getsentry/raven-go"
 	"github.com/jmoiron/sqlx"
 	"github.com/valyala/fasthttp"
@@ -21,7 +20,6 @@ var RavenClient *raven.Client
 type MethodData struct {
 	User  Token
 	DB    *sqlx.DB
-	Doggo *statsd.Client
 	R     *redis.Client
 	Ctx   *fasthttp.RequestCtx
 }

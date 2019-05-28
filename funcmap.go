@@ -20,7 +20,6 @@ import (
 	"github.com/russross/blackfriday"
 	"github.com/thehowl/qsql"
 	"github.com/kawatapw/hanayo/modules/bbcode"
-	"github.com/kawatapw/hanayo/modules/btcaddress"
 	"github.com/kawatapw/hanayo/modules/doc"
 	"github.com/kawatapw/hanayo/modules/fa-semantic-mappings"
 	"github.com/kawatapw/playstyle"
@@ -439,10 +438,6 @@ var funcMap = template.FuncMap{
 			fmt.Println(err)
 		}
 		return x.Val()
-	},
-	"getBitcoinAddress": btcaddress.Get,
-	"languageInformation": func() []langInfo {
-		return languageInformation
 	},
 	"languageInformationByNameShort": func(s string) langInfo {
 		for _, lang := range languageInformation {

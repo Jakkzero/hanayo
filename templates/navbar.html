@@ -20,29 +20,30 @@
 					{{ navbarItem .Path (.T "Server Switcher") "/static/kawata-server-switcher.exe" }}
 				</div>
 			</div>
-			{{ if .Context.User.Username }}
-			<div class="ui dropdown item">
-				<span>{{ .T "Beatmaps" }}</span>
-				<div class="menu">
-					{{ navbarItem .Path (.T "Rank Request") "/beatmaps/rank_request" }}
-				</div>
-			</div>
 
 			<div class="ui dropdown item">
-					<span>{{ .T "Social" }}</span>
-					<div class="menu">
-						{{ navbarItem .Path (.T "Discord") "https://discord.gg/Gk7wAqf" }}
-						{{ navbarItem .Path (.T "Twitter") "https://twitter.com/osukawata" }}
-						{{ navbarItem .Path (.T "YouTube Channel") "https://www.youtube.com/channel/UCBFmWxbdVDbwQWtP-L6cU2g" }}
-						{{ navbarItem .Path (.T "Reddit") "https://www.reddit.com/r/kawata" }}
-					</div>
+				<span>{{ .T "Social" }}</span>
+				<div class="menu">
+					{{ navbarItem .Path (.T "Discord") "https://discord.gg/Gk7wAqf" }}
+					{{ navbarItem .Path (.T "Twitter") "https://twitter.com/osukawata" }}
+					{{ navbarItem .Path (.T "YouTube Channel") "https://www.youtube.com/channel/UCBFmWxbdVDbwQWtP-L6cU2g" }}
+					{{ navbarItem .Path (.T "Reddit") "https://www.reddit.com/r/kawata" }}
+				</div>
 			</div>
 
 			<div class="ui dropdown item">
 				<span>{{ .T "Clans" }}</span>
 				<div class="menu">
-					{{ navbarItem .Path (.T "Leaderboard") "/clans?mode=0" }}
-					{{ navbarItem .Path (.T "Create") "/clans/create" }}
+				{{ navbarItem .Path (.T "Leaderboard") "/clans?mode=0" }}
+				{{ navbarItem .Path (.T "Create") "/clans/create" }}
+			</div>
+			</div>
+
+			{{ if .Context.User.Username }}
+			<div class="ui dropdown item">
+				<span>{{ .T "Beatmaps" }}</span>
+				<div class="menu">
+					{{ navbarItem .Path (.T "Rank Request") "/beatmaps/rank_request" }}
 				</div>
 			</div>
 

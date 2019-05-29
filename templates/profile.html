@@ -58,13 +58,20 @@
 							</div>
 						{{ end }}
 						<div class="ui grid" id="badgescol">
-							{{ if and (not .badges) (not .custom_badge) }}
+						{{ if and (not .badges) (not .custom_badge) }}
 							{{ else }}
 								{{ range .badges }}
-									<div class="column" id="badges" data-content="Add users to your feed" data-variation="mini">
+									<div class="column" id="badges">
 										<i class="{{ faIcon .icon }} large icon"></i><br>
+									</div>
+								{{ end }}
+								<br>
+								{{ with .custom_badge }}
+								<div class="column" id="badges">
+									<i class="{{ faIcon .icon }} large icon"></i><br>
 								</div>
-							{{ end }}
+								{{ end }}
+
 						{{ end }}
 						</div>
 
@@ -94,7 +101,7 @@
 								</a>
 							{{ end }}
 							{{ if hasAdmin $global.Context.User.Privileges }}
-								<a href="https://admin.kawata.pw/index.php?p=103&id={{ $global.UserID }}"
+								<a href="https://old.kawata.pw/index.php?p=103&id={{ $global.UserID }}"
 									target="_blank" title="Quick edit" class="ui circular mini blue icon button">
 									<i class="folder open outline icon"></i>
 								</a>

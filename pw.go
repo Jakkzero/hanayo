@@ -73,7 +73,7 @@ func passwordReset(c *gin.Context) {
 	)
 	msg := mailgun.NewMessage(
 		config.MailgunFrom,
-		T(c, "Ripple password recovery instructions"),
+		T(c, "Kawata password recovery instructions"),
 		content,
 		email,
 	)

@@ -136,7 +136,3 @@
 [[constraint]]
   name = "gopkg.in/yaml.v2"
   version = "2.2.2"
-
-[[constraint]]
-  name = "zxq.co/ripple/rippleapi"
-  version = "0.1.0"

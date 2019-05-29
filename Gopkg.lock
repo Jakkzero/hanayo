@@ -343,15 +343,9 @@
   revision = "51d6538a90f86fe93ac480b35f37b2be17fef232"
   version = "v2.2.2"
 
-[[projects]]
-  name = "zxq.co/ripple/rippleapi"
-  packages = ["common"]
-  revision = "fc38503bddc506108a921cafe9ae82a70aba8e5f"
-  version = "0.1.0"
-
 [solve-meta]
   analyzer-name = "dep"
   analyzer-version = 1
-  inputs-digest = "df01e3ca11c63346660f76fca454a5e657951c8414ce0dd9df8fb64b6d389f3f"
+  inputs-digest = "7c36eb17ac643acc00821f1e0cdd4c2275d712de56d5582a5f4577182f9aefb7"
   solver-name = "gps-cdcl"
   solver-version = 1
